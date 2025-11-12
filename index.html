@@ -4,6 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Meme Generator</title>
+
+        <link rel="stylesheet" href="./css/styles.css" />
     </head>
     <body onload="onInit()">
         <header class="main-header">
@@ -11,11 +13,22 @@
             <nav></nav>
         </header>
 
-        <section class="meme-gallery"></section>
+        <section class="meme-gallery-page">
+            <section class="search">
+                <input type="search" name="search" id="search" />
+                <section class="most-searched">
+                    <ul class="most-serched-keys"></ul>
+                </section>
+            </section>
+            <section class="meme-gallery"></section>
+        </section>
 
         <section class="meme-edit-page">
-            <canvas></canvas>
+            <canvas class="meme-canvas" width="500" height="500" onclick="onDraw(event)"></canvas>
             <section class="edit-tools"></section>
         </section>
+
+        <script src="./js/services/meme-service.js"></script>
+        <script src="./js/controllers/meme-controller.js"></script>
     </body>
 </html>
