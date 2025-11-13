@@ -15,6 +15,7 @@
 
         <section class="meme-gallery-page">
             <section class="search">
+                <label for="search">Search:</label>
                 <input type="search" name="search" id="search" />
                 <section class="most-searched">
                     <ul class="most-serched-keys"></ul>
@@ -25,6 +26,8 @@
 
         <section class="meme-edit-page">
             <div class="canvas-container">
+                <label for="top-text">Top Text</label>
+                <input type="text" name="top-text" id="top-text" oninput="onSetLineTxt(event)" />
                 <canvas class="meme-canvas" width="500" height="500"></canvas>
             </div>
             <section class="edit-tools"></section>

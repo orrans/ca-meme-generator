@@ -1,16 +1,16 @@
 /* SETUP */
-@import url('/css/setup/mq.css');
-@import url('/css/setup/typography.css');
-@import url('/css/setup/vars.css');
+@import url('../css/setup/mq.css');
+@import url('../css/setup/typography.css');
+@import url('../css/setup/vars.css');
 
 /* BASICS */
-@import url('/css/basics/base.css');
-@import url('/css/basics/helpers.css');
+@import url('../css/basics/base.css');
+@import url('../css/basics/helpers.css');
 
 /* COMPONENTS */
 @import url();
-@import url('/css/components/header.css');
-@import url('/css/components/main-page.css');
-@import url('/css/components/canvas.css');
+@import url('../css/components/header.css');
+@import url('../css/components/main-page.css');
+@import url('../css/components/canvas.css');
 
 /* MQ */

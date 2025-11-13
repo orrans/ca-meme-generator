@@ -17,15 +17,18 @@ var gMeme = {
 // demo search count for first load
 var gKeywordSearchCountMap = { funny: 12, cat: 16, baby: 2 }
 
-function getMeme(id) {
-    const meme = { ...gMeme }
-    meme.img = getImgById(meme.selectedImgId)
-    return meme
+function getMeme() {
+    return gMeme
 }
 
 function getImgById(imgId) {
     return gImgs.find((img) => img.id === imgId)
 }
 
-function setLineTxt() {}
-function setImg() {}
+function setLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
+}
+
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId
+}
