@@ -1,23 +1,26 @@
 /* flex helpers */
 
 .flex {
-  display: flex;
+    display: flex;
 }
 
 .space-between {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .center {
-  justify-content: center;
+    justify-content: center;
 }
 
 .align-center {
-  align-items: center;
+    align-items: center;
 }
 
 /* list item helpers */
 
-
 /* layout helpers  */
 
+/* general */
+.hidden {
+    display: none;
+}
