@@ -25,12 +25,30 @@
         </section>
 
         <section class="meme-edit-page">
-            <div class="canvas-container">
+            <section class="canvas-container">
+                <canvas class="meme-canvas" width="500" height="500"></canvas>
+            </section>
+
+            <section class="edit-tools">
                 <label for="top-text">Top Text</label>
                 <input type="text" name="top-text" id="top-text" oninput="onSetLineTxt(event)" />
-                <canvas class="meme-canvas" width="500" height="500"></canvas>
-            </div>
-            <section class="edit-tools"></section>
+
+                <div class="font-edit-tools">
+                    <button onclick="onAddLine()">+</button>
+                    <button onclick="onDeleteLine()">-</button>
+                    <button onclick="onSwitchLine()">^v</button>
+                    <button onclick="onChangeFontSize(1)">A+</button>
+                    <button onclick="onChangeFontSize(-1)">A-</button>
+                </div>
+
+                <div class="aling-edit-tools">
+                    <button onclick="onAlignText('left')">Left</button>
+                    <button onclick="onAlignText('center')">Center</button>
+                    <button onclick="onAlignText('right')">Right</button>
+                    <button onclick="onMoveLine(10)">^</button>
+                    <button onclick="onMoveLine(-10)">v</button>
+                </div>
+            </section>
         </section>
 
         <script src="./js/services/meme-service.js"></script>
