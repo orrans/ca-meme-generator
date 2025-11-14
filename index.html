@@ -37,8 +37,15 @@
                     <button onclick="onAddLine()">+</button>
                     <button onclick="onDeleteLine()">-</button>
                     <button onclick="onSwitchLine()">^v</button>
-                    <button onclick="onChangeFontSize(1)">A+</button>
-                    <button onclick="onChangeFontSize(-1)">A-</button>
+                    <button onclick="onChangeFontSize(2)">A+</button>
+                    <button onclick="onChangeFontSize(-2)">A-</button>
+                    <label for="favcolor">Select your favorite color:</label>
+                    <input
+                        type="color"
+                        class="color-pick"
+                        id="favcolor"
+                        value="#ffffff"
+                        oninput="onSetColor()" />
                 </div>
 
                 <div class="aling-edit-tools">

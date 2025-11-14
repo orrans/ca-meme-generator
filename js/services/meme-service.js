@@ -16,7 +16,7 @@ var gMeme = {
         {
             txt: 'Add text here',
             size: 20,
-            color: 'red',
+            color: '#ffffff',
         },
     ],
 }
@@ -42,4 +42,18 @@ function setImg(imgId) {
 
 function getImgs() {
     return gImgs
+}
+
+function onSetColor() {
+    const color = document.querySelector('.color-pick').value
+    gMeme.lines[gMeme.selectedLineIdx].color = color
+    renderMeme()
+}
+
+function onChangeFontSize(size) {
+    const CurrFontSize = gMeme.lines[gMeme.selectedLineIdx].size
+    console.log(CurrFontSize)
+    if (CurrFontSize < 10) gMeme.lines[gMeme.selectedLineIdx].size = 10
+    gMeme.lines[gMeme.selectedLineIdx].size += size
+    renderMeme()
 }
