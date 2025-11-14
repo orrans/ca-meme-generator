@@ -33,7 +33,9 @@ p {
 }
 
 img {
-    width: 100%;
+    width: 200px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 a {
@@ -42,4 +44,9 @@ a {
     &:hover {
         text-decoration: none;
     }
+}
+
+section {
+    margin-bottom: 100px;
+    margin-left: 10px;
 }
