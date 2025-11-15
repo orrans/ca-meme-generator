@@ -64,5 +64,5 @@ function addLine() {
         size: 20,
         color: '#ffffff',
     })
-    gMeme.selectedLineIdx++
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
