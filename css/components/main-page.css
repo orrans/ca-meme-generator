@@ -1,0 +1,40 @@
+.meme-gallery-page {
+    padding: 20px;
+}
+
+.meme-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.meme-gallery img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.meme-gallery img:hover {
+    border-color: var(--clr-primary);
+}
+
+.meme-edit-page {
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.edit-tools {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--clr-bg-light);
+    padding: 20px;
+    border-radius: 8px;
+}

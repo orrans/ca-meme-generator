@@ -48,7 +48,7 @@ function renderMeme() {
                 } else if (idx === 1) {
                     line.y = gElCanvas.height - 50
                 } else {
-                    line.y = gElCanvas.height / 2 + (idx - 2) * 50
+                    line.y = gElCanvas.height / 2 + (idx - 2) * 20
                 }
             }
 

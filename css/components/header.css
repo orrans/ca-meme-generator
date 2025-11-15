@@ -1,0 +1,20 @@
+.main-header {
+    background-color: var(--clr-bg-light);
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--clr-primary);
+}
+
+.main-header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main-header .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header .main-nav li {
+    margin-left: 15px;
+}

@@ -1,5 +1,3 @@
-/* flex helpers */
-
 .flex {
     display: flex;
 }
@@ -16,11 +14,6 @@
     align-items: center;
 }
 
-/* list item helpers */
-
-/* layout helpers  */
-
-/* general */
 .hidden {
     display: none;
 }
