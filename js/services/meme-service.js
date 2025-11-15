@@ -63,6 +63,25 @@ function addLine() {
         txt: 'Add text here',
         size: 20,
         color: '#ffffff',
+        x: undefined,
+        y: undefined,
+        isDrag: false,
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function setLineDrag(isDrag) {
+    if (!gMeme.lines.length) return
+    var line = gMeme.lines[gMeme.selectedLineIdx]
+    line.isDrag = isDrag
+}
+
+function moveLine(lineX, lineY) {
+    var line = gMeme.lines[gMeme.selectedLineIdx]
+    line.x += lineX
+    line.y += lineY
+}
+
+function setSelectedLine(idx) {
+    gMeme.selectedLineIdx = idx
 }
