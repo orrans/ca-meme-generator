@@ -44,16 +44,25 @@ function getImgs() {
     return gImgs
 }
 
-function onSetColor() {
-    const color = document.querySelector('.color-pick').value
+function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
-    renderMeme()
 }
 
-function onChangeFontSize(size) {
-    const CurrFontSize = gMeme.lines[gMeme.selectedLineIdx].size
-    console.log(CurrFontSize)
-    if (CurrFontSize < 10) gMeme.lines[gMeme.selectedLineIdx].size = 10
-    gMeme.lines[gMeme.selectedLineIdx].size += size
-    renderMeme()
+function changeFontSize(diff) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+
+    let newSize = line.size + diff
+    if (newSize < 10) newSize = 10
+    if (newSize > 150) newSize = 150
+
+    line.size = newSize
+}
+
+function addLine() {
+    gMeme.lines.push({
+        txt: 'Add text here',
+        size: 20,
+        color: '#ffffff',
+    })
+    gMeme.selectedLineIdx++
 }

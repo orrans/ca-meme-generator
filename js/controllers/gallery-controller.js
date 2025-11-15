@@ -20,3 +20,4 @@ function onSelectMeme(id) {
     elEditPage.style.display = 'block'
     renderMeme()
 }
+
