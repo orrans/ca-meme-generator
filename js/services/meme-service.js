@@ -1,12 +1,88 @@
 'use strict'
 
 var gImgs = [
-    { id: 1, url: 'img/square-ratio/1.jpg', keywords: ['funny', 'cat'] },
-    { id: 2, url: 'img/square-ratio/2.jpg', keywords: ['baby', 'funny'] },
-    { id: 3, url: 'img/square-ratio/3.jpg', keywords: ['dog', 'cute'] },
-    { id: 4, url: 'img/square-ratio/4.jpg', keywords: ['funny', 'baby'] },
-    { id: 5, url: 'img/square-ratio/5.jpg', keywords: ['cat', 'cute'] },
-    { id: 6, url: 'img/square-ratio/6.jpg', keywords: ['funny', 'dog'] },
+    { id: 1, url: 'img/square-ratio/1.jpg', keywords: ['politics', 'trump', 'angry', 'man'] },
+    { id: 2, url: 'img/square-ratio/2.jpg', keywords: ['dog', 'puppy', 'cute', 'animal', 'kiss'] },
+    {
+        id: 3,
+        url: 'img/square-ratio/3.jpg',
+        keywords: ['baby', 'dog', 'puppy', 'cute', 'animal', 'sleep'],
+    },
+    {
+        id: 4,
+        url: 'img/square-ratio/4.jpg',
+        keywords: ['cat', 'sleep', 'animal', 'cute', 'keyboard'],
+    },
+    {
+        id: 5,
+        url: 'img/square-ratio/5.jpg',
+        keywords: ['baby', 'success', 'kid', 'win', 'beach', 'funny'],
+    },
+    {
+        id: 6,
+        url: 'img/square-ratio/6.jpg',
+        keywords: ['aliens', 'history channel', 'man', 'funny', 'explain'],
+    },
+    {
+        id: 7,
+        url: 'img/square-ratio/7.jpg',
+        keywords: ['baby', 'surprised', 'shocked', 'funny', 'kid'],
+    },
+    {
+        id: 8,
+        url: 'img/square-ratio/8.jpg',
+        keywords: ['willy wonka', 'sarcastic', 'man', 'movie'],
+    },
+    {
+        id: 9,
+        url: 'img/square-ratio/9.jpg',
+        keywords: ['baby', 'evil', 'laughing', 'funny', 'scheming', 'kid'],
+    },
+    {
+        id: 10,
+        url: 'img/square-ratio/10.jpg',
+        keywords: ['politics', 'obama', 'laughing', 'happy', 'man'],
+    },
+    {
+        id: 11,
+        url: 'img/square-ratio/11.jpg',
+        keywords: ['basketball', 'kiss', 'nba', 'funny', 'awkward'],
+    },
+    {
+        id: 12,
+        url: 'img/square-ratio/12.jpg',
+        keywords: ['man', 'pointing', 'serious', 'celebrity'],
+    },
+    {
+        id: 13,
+        url: 'img/square-ratio/13.jpg',
+        keywords: ['leonardo dicaprio', 'cheers', 'gatsby', 'movie', 'man', 'smile'],
+    },
+    {
+        id: 14,
+        url: 'img/square-ratio/14.jpg',
+        keywords: ['morpheus', 'matrix', 'movie', 'man', 'serious'],
+    },
+    {
+        id: 15,
+        url: 'img/square-ratio/15.jpg',
+        keywords: ['boromir', 'lord of the rings', 'movie', 'man', 'one does not simply'],
+    },
+    {
+        id: 16,
+        url: 'img/square-ratio/16.jpg',
+        keywords: ['picard', 'star trek', 'facepalm', 'man', 'smile', 'shy'],
+    },
+    {
+        id: 17,
+        url: 'img/square-ratio/17.jpg',
+        keywords: ['putin', 'politics', 'russia', 'man', 'serious'],
+    },
+    {
+        id: 18,
+        url: 'img/square-ratio/18.jpg',
+        keywords: ['buzz lightyear', 'woody', 'toy story', 'movie', 'cartoon', 'everywhere'],
+    },
 ]
 
 var gMeme = {
