@@ -279,3 +279,10 @@ function onSetFont(elSelect) {
     setLineFont(fontFamily)
     renderMeme()
 }
+
+function onBackToHomepage() {
+    const homePage = document.querySelector('.meme-gallery-page')
+    if (!homePage.classList.contains('hidden')) return
+    homePage.classList.remove('hidden')
+    document.querySelector('.meme-edit-page').classList.add('hidden')
+}
