@@ -95,7 +95,11 @@ function onAddLine() {
     renderMeme()
 }
 
-function onDeleteLine() {}
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+    updateEditorForSelectedLine()
+}
 
 function onSwitchLine() {
     const meme = getMeme()

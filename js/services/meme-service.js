@@ -146,6 +146,16 @@ function addLine() {
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
+function deleteLine() {
+    if (!gMeme.lines.length) return
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    if (gMeme.lines.length > 0) {
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
+    } else {
+        gMeme.selectedLineIdx = 0
+    }
+}
+
 function setLineDrag(isDrag) {
     if (!gMeme.lines.length) return
     var line = gMeme.lines[gMeme.selectedLineIdx]
