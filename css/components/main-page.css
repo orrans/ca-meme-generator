@@ -38,3 +38,11 @@
     padding: 20px;
     border-radius: 8px;
 }
+
+.meme-edit-page.hidden {
+    display: none;
+}
+
+.meme-gallery-page.hidden {
+    display: none;
+}

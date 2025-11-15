@@ -61,7 +61,7 @@ function drawText(line, x, y, isSelected = false) {
     gCtx.fillStyle = line.color
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 2
-    gCtx.font = `${line.size}px Impact`
+    gCtx.font = `${line.size}px ${line.font}`
 
     gCtx.textAlign = line.align
     gCtx.textBaseline = 'middle'
@@ -271,5 +271,11 @@ function onAlignText(align) {
 
 function onMoveLine(offset) {
     moveLineVertical(offset)
+    renderMeme()
+}
+
+function onSetFont(elSelect) {
+    const fontFamily = elSelect.value
+    setLineFont(fontFamily)
     renderMeme()
 }

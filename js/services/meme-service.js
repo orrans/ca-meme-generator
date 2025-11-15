@@ -97,6 +97,7 @@ var gMeme = {
             y: undefined,
             isDrag: false,
             align: 'center',
+            font: 'impact',
         },
     ],
 }
@@ -147,6 +148,7 @@ function addLine() {
         y: undefined,
         isDrag: false,
         align: 'center',
+        font: 'impact',
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -190,4 +192,9 @@ function getSelectedLine() {
 function setLineAlign(align) {
     if (!gMeme.lines.length) return
     gMeme.lines[gMeme.selectedLineIdx].align = align
+}
+
+function setLineFont(fontFamily) {
+    if (!gMeme.lines.length) return
+    gMeme.lines[gMeme.selectedLineIdx].font = fontFamily
 }

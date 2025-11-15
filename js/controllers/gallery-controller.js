@@ -16,8 +16,7 @@ function onSelectMeme(id) {
     setImg(id)
     const elGalleryPage = document.querySelector('.meme-gallery-page')
     const elEditPage = document.querySelector('.meme-edit-page')
-    elGalleryPage.style.display = 'none'
-    elEditPage.style.display = 'block'
+    elGalleryPage.classList.add('hidden')
+    elEditPage.classList.remove('hidden')
     renderMeme()
 }
-
