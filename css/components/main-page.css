@@ -33,10 +33,30 @@
     flex-basis: 40%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     background-color: var(--clr-bg-light);
     padding: 20px;
     border-radius: 8px;
+    border: 1px solid var(--clr-grey-border);
+}
+
+.btn-download {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--clr-primary);
+    color: var(--clr-bg-main);
+    padding: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.control-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
 }
 
 .meme-edit-page.hidden {
