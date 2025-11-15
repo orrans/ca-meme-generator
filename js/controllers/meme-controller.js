@@ -62,14 +62,35 @@ function drawText(line, x, y, isSelected = false) {
     gCtx.strokeStyle = 'black'
     gCtx.lineWidth = 2
     gCtx.font = `${line.size}px Impact`
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'middle'
-    gCtx.fillText(line.txt, x, y)
-    gCtx.strokeText(line.txt, x, y)
 
+    gCtx.textAlign = line.align
+    gCtx.textBaseline = 'middle'
+
+    let drawX
+    if (line.align === 'left') {
+        drawX = 25
+    } else if (line.align === 'center') {
+        drawX = gElCanvas.width / 2
+    } else if (line.align === 'right') {
+        drawX = gElCanvas.width - 25
+    }
+
+    gCtx.fillText(line.txt, drawX, y)
+    gCtx.strokeText(line.txt, drawX, y)
+
+    //border draw calc
     const textWidth = gCtx.measureText(line.txt).width
     const textHeight = line.size
-    const rectX = x - textWidth / 2 - 10
+
+    var rectX
+    if (line.align === 'left') {
+        rectX = drawX - 10
+    } else if (line.align === 'center') {
+        rectX = drawX - textWidth / 2 - 10
+    } else if (line.align === 'right') {
+        rectX = drawX - textWidth - 10
+    }
+
     const rectY = y - textHeight / 2 - 10
     const rectWidth = textWidth + 20
     const rectHeight = textHeight + 20
@@ -241,4 +262,14 @@ function updateEditorForSelectedLine() {
 
     const selectedLine = meme.lines[meme.selectedLineIdx]
     elInput.value = selectedLine.txt
+}
+
+function onAlignText(align) {
+    setLineAlign(align)
+    renderMeme()
+}
+
+function onMoveLine(offset) {
+    moveLineVertical(offset)
+    renderMeme()
 }

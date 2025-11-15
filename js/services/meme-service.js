@@ -93,6 +93,10 @@ var gMeme = {
             txt: 'Add text here',
             size: 20,
             color: '#ffffff',
+            x: undefined,
+            y: undefined,
+            isDrag: false,
+            align: 'center',
         },
     ],
 }
@@ -142,6 +146,7 @@ function addLine() {
         x: undefined,
         y: undefined,
         isDrag: false,
+        align: 'center',
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -170,4 +175,19 @@ function moveLine(lineX, lineY) {
 
 function setSelectedLine(idx) {
     gMeme.selectedLineIdx = idx
+}
+
+function moveLineVertical(lineY) {
+    if (!gMeme.lines.length) return
+    gMeme.lines[gMeme.selectedLineIdx].y += lineY
+}
+
+function getSelectedLine() {
+    if (!gMeme.lines.length) return null
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function setLineAlign(align) {
+    if (!gMeme.lines.length) return
+    gMeme.lines[gMeme.selectedLineIdx].align = align
 }
