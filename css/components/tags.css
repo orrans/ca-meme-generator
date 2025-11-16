@@ -8,6 +8,8 @@
     gap: 12px;
     flex-wrap: wrap;
     align-items: baseline;
+    height: 40px;
+    overflow: hidden;
 }
 
 .most-searched {
@@ -15,4 +17,8 @@
     gap: 20px;
     padding-left: 20px;
     align-items: baseline;
+}
+
+.most-searched-keys li {
+    line-height: 1;
 }

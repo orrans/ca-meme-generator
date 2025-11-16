@@ -12,6 +12,7 @@ function onInit() {
     addTouchListeners()
     renderGallery()
     renderTags()
+    initTags()
 }
 
 function addMouseListeners() {
