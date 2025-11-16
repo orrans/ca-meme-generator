@@ -68,6 +68,10 @@ button,
     justify-content: center;
     line-height: 1.1;
     gap: 0.5ch; /* ch = character size */
+
+    &:hover {
+        background-color: var(--clr-secondary);
+    }
 }
 
 .no-gap {
@@ -95,4 +99,8 @@ button,
 
 .search {
     align-items: baseline;
+}
+
+a.btn {
+    text-decoration: none;
 }
