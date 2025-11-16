@@ -2,6 +2,12 @@
     background-color: var(--clr-bg-light);
     padding: 10px 20px;
     border-bottom: 1px solid var(--clr-primary);
+    margin-bottom: 20px;
+    border-radius: 12px;
+}
+
+.main-header h1 {
+    margin: 0;
 }
 
 .main-header .logo {
@@ -17,4 +23,12 @@
 
 .main-header .main-nav li {
     margin-left: 15px;
+}
+
+.main-header nav {
+    gap: 24px;
+}
+
+.main-header a.active {
+    color: white;
 }

@@ -1,5 +1,5 @@
 .canvas-container {
-    flex-basis: 60%;
+    /* flex-basis: 60%; */
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,0 +1,18 @@
+input[type="text"], input[type="search"], .fake-input {
+    border-radius: 6px;
+    border: 1px solid #999;
+    padding: 4px 8px;
+    display: inline-block;
+    background: none;
+    color: white;
+}
+
+input.no-style {
+    border: none;
+    padding: 0;
+    border-radius: 0;
+
+    &:focus {
+        outline: 0;
+    }
+}

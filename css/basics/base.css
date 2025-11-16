@@ -3,15 +3,17 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
     color: var(--clr-text);
-    line-height: 1.6;
 }
 
 body {
-    margin: 0;
     font-size: 1rem;
     background-color: var(--clr-bg-main);
+}
+
+main {
+    margin: 0 auto;
+    max-width: var(--page-width);
 }
 
 h1:hover {

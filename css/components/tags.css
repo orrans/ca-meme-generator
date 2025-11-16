@@ -1,0 +1,16 @@
+.most-searched-keys, .most-searched-keys li {
+    margin: 0;
+    padding: 0;
+}
+
+.most-searched-keys {
+    margin-top: 6px;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.most-searched {
+    flex-grow: 1;
+    gap: 20px;
+    padding-left: 20px;
+}

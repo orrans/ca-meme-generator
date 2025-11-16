@@ -6,85 +6,140 @@
         <title>Meme Generator</title>
 
         <link rel="stylesheet" href="./css/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+            rel="stylesheet" />
     </head>
     <body onload="onInit()">
-        <header class="main-header">
-            <h1 onclick="onBackToHomepage()">Meme Generator</h1>
-            <nav><!-- still not implemented --></nav>
-        </header>
+        <main>
+            <header class="main-header flex space-between align-center">
+                <h1 onclick="onBackToHomepage()">Meme Generator</h1>
+                <nav class="flex">
+                    <a href="#" class="gallery active">Gallery</a>
+                    <a class="saved-memes" href="#">Saved memes</a>
+                    <a class="about" href="#">About</a>
+                </nav>
+            </header>
 
-        <section class="meme-gallery-page">
-            <section class="search">
-                <!-- still not implemented -->
-                <label for="search">Search:</label>
-                <input type="search" name="search" id="search" />
-                <section class="most-searched">
-                    <ul class="most-serched-keys"></ul>
+            <section class="meme-gallery-page">
+                <section class="search flex space-between">
+                    <!-- still not implemented -->
+                    <div class="fake-input">
+                        <input
+                            type="search"
+                            name="search"
+                            id="search"
+                            class="no-style"
+                            placeholder="Search..."
+                            oninput="debouncedSearch(this.value)"
+                             />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <section class="most-searched flex">
+                        <h2>Most searched</h2>
+                        <ul class="most-searched-keys flex"></ul>
+                    </section>
+                </section>
+
+                <section class="meme-gallery"></section>
+            </section>
+
+            <section class="meme-edit-page hidden">
+                <section class="canvas-container">
+                    <canvas class="meme-canvas" width="500" height="500"></canvas>
+                </section>
+
+                <section class="edit-tools">
+                    <label for="meme-text">Text</label>
+
+                    <input
+                        type="text"
+                        name="meme-text"
+                        id="meme-text"
+                        placeholder="Add Text here..."
+                        oninput="onSetLineTxt(event)" />
+
+                    <div class="control-group">
+                        <button onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                        <button onclick="onDeleteLine()"><i class="fa-solid fa-minus"></i></button>
+                        <button onclick="onSwitchLine()"><i class="fa-solid fa-repeat"></i></button>
+                        <button class="no-gap" onclick="onChangeFontSize(2)">
+                            <i class="fa-solid fa-font"></i>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button class="no-gap" onclick="onChangeFontSize(-2)">
+                            <i class="fa-solid fa-font"></i>
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                    </div>
+
+                    <div class="control-group">
+                        <button onclick="onAlignText('left')">
+                            <i class="fa-solid fa-align-left"></i>
+                        </button>
+                        <button onclick="onAlignText('center')">
+                            <i class="fa-solid fa-align-center"></i>
+                        </button>
+                        <button onclick="onAlignText('right')">
+                            <i class="fa-solid fa-align-right"></i>
+                        </button>
+                        <button onclick="onMoveLine(-10)">
+                            <i class="fa-solid fa-arrow-up"></i>
+                        </button>
+                        <button onclick="onMoveLine(10)">
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </button>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="favcolor">Select your favorite color:</label>
+                        <input
+                            type="color"
+                            class="color-pick"
+                            id="favcolor"
+                            value="#ffffff"
+                            oninput="onSetColor()" />
+                    </div>
+
+                    <div class="control-group">
+                        <label for="font-picker">Select your font:</label>
+                        <select id="font-picker" class="font-picker" onchange="onSetFont(this)">
+                            <option value="impact">IMPACT</option>
+                            <option value="arial">ARIAL</option>
+                            <option value="times new roman">TIMES NEW ROMAN</option>
+                            <option value="courier new">COURIER NEW</option>
+                            <option value="georgia">GEORGIA</option>
+                            <option value="verdana">VERDANA</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <a
+                            href="#"
+                            class="btn btn-download"
+                            onclick="onDownloadMeme(this)"
+                            download="my-meme">
+                            <i class="fa-solid fa-download"></i>
+                            Download
+                        </a>
+                        <button class="save">
+                            <i class="fa-solid fa-download"></i>
+                            Save
+                        </button>
+                        <button class="share">
+                            <i class="fa-solid fa-share"></i>
+                            Share
+                        </button>
+                    </div>
                 </section>
             </section>
-            <section class="meme-gallery"></section>
-        </section>
+        </main>
 
-        <section class="meme-edit-page hidden">
-            <section class="canvas-container">
-                <canvas class="meme-canvas" width="500" height="500"></canvas>
-            </section>
-
-            <section class="edit-tools">
-                <label for="meme-text">Text</label>
-
-                <input
-                    type="text"
-                    name="meme-text"
-                    id="meme-text"
-                    placeholder="Add Text here..."
-                    oninput="onSetLineTxt(event)" />
-
-                <div class="control-group">
-                    <button onclick="onAddLine()">+</button>
-                    <button onclick="onDeleteLine()">-</button>
-                    <button onclick="onSwitchLine()">^v</button>
-                    <button onclick="onChangeFontSize(2)">A+</button>
-                    <button onclick="onChangeFontSize(-2)">A-</button>
-                </div>
-
-                <div class="control-group">
-                    <button onclick="onAlignText('left')">Left</button>
-                    <button onclick="onAlignText('center')">Center</button>
-                    <button onclick="onAlignText('right')">Right</button>
-                    <button onclick="onMoveLine(-10)">^</button>
-                    <button onclick="onMoveLine(10)">v</button>
-                </div>
-
-                <div class="control-group">
-                    <label for="favcolor">Select your favorite color:</label>
-                    <input
-                        type="color"
-                        class="color-pick"
-                        id="favcolor"
-                        value="#ffffff"
-                        oninput="onSetColor()" />
-                </div>
-
-                <div class="control-group">
-                    <label for="font-picker">Select your font:</label>
-                    <select id="font-picker" class="font-picker" onchange="onSetFont(this)">
-                        <option value="impact">IMPACT</option>
-                        <option value="arial">ARIAL</option>
-                        <option value="times new roman">TIMES NEW ROMAN</option>
-                        <option value="courier new">COURIER NEW</option>
-                        <option value="georgia">GEORGIA</option>
-                        <option value="verdana">VERDANA</option>
-                    </select>
-                </div>
-
-                <a href="#" class="btn-download" onclick="onDownloadMeme(this)" download="my-meme">
-                    Download
-                </a>
-            </section>
-        </section>
-
+        <script src="https://kit.fontawesome.com/4d02d0e877.js" crossorigin="anonymous"></script>
         <script src="./js/services/meme-service.js"></script>
+        <script src="./js/controllers/search-controller.js"></script>
         <script src="./js/controllers/gallery-controller.js"></script>
         <script src="./js/controllers/meme-controller.js"></script>
     </body>
