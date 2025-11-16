@@ -126,6 +126,7 @@ function onSwitchLine() {
     }
     elInput.value = meme.lines[meme.selectedLineIdx].txt
     elInput.focus()
+    updateEditorForSelectedLine()
     renderMeme()
 }
 
@@ -252,15 +253,19 @@ function isLineClicked(clickPos, line) {
 
 function updateEditorForSelectedLine() {
     const elInput = document.querySelector('[name="meme-text"]')
-    const meme = getMeme()
+    const elColorPick = document.querySelector('.color-pick')
+    const elFontPick = document.querySelector('.font-picker')
+    const selectedLine = getSelectedLine()
 
-    if (!meme.lines.length) {
+    if (!selectedLine) {
         elInput.value = ''
+        elColorPick.value = '#ffffff'
+        elFontPick.value = 'impact'
         return
     }
-
-    const selectedLine = meme.lines[meme.selectedLineIdx]
     elInput.value = selectedLine.txt
+    elColorPick.value = selectedLine.color
+    elFontPick.value = selectedLine.font
 }
 
 function onAlignText(align) {
@@ -293,4 +298,45 @@ function onBackToHomepage() {
     if (!homePage.classList.contains('hidden')) return
     homePage.classList.remove('hidden')
     document.querySelector('.meme-edit-page').classList.add('hidden')
+}
+
+function onShareImg(ev) {
+    ev.preventDefault()
+    const meme = getMeme()
+    gCtx.drawImage(gElCurrMemeImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    meme.lines.forEach(function (line) {
+        drawText(line, line.x, line.y, false)
+    })
+    const canvasData = gElCanvas.toDataURL('image/jpeg')
+
+    // After a succesful upload, allow the user to share on Facebook
+    function onSuccess(uploadedImgUrl) {
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        console.log('encodedUploadedImgUrl:', encodedUploadedImgUrl)
+        window.open(
+            `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`
+        )
+    }
+    uploadImg(canvasData, onSuccess)
+}
+
+// on submit call to this function
+
+async function uploadImg(imgData, onSuccess) {
+    const CLOUD_NAME = 'webify'
+    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
+    const formData = new FormData()
+    formData.append('file', imgData)
+    formData.append('upload_preset', 'webify')
+    try {
+        const res = await fetch(UPLOAD_URL, {
+            method: 'POST',
+            body: formData,
+        })
+        const data = await res.json()
+        console.log('Cloudinary response:', data)
+        onSuccess(data.secure_url)
+    } catch (err) {
+        console.log(err)
+    }
 }
