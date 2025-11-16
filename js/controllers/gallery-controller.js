@@ -20,11 +20,15 @@ function renderGalleryItems(items) {
 }
 
 function renderSearchedItems(search) {
-    const items = getImgs().filter((i) => i.keywords.some((kw) => kw.toLowerCase().includes(search.toLowerCase())))
+    const items = getImgs().filter((i) =>
+        i.keywords.some((kw) => kw.toLowerCase().includes(search.toLowerCase()))
+    )
     renderGalleryItems(items)
 }
 
 function onSelectMeme(id) {
+    const galleryEl = document.querySelector('.gallery')
+    galleryEl.classList.remove('active')
     setImg(id)
     const elGalleryPage = document.querySelector('.meme-gallery-page')
     const elEditPage = document.querySelector('.meme-edit-page')

@@ -295,6 +295,8 @@ function onSetFont(elSelect) {
 
 function onBackToHomepage() {
     const homePage = document.querySelector('.meme-gallery-page')
+    const galleryEl = document.querySelector('.gallery')
+    galleryEl.classList.add('active')
     if (!homePage.classList.contains('hidden')) return
     homePage.classList.remove('hidden')
     document.querySelector('.meme-edit-page').classList.add('hidden')
