@@ -3,6 +3,7 @@
 let gElCanvas
 let gCtx
 var gStartPos
+let gElCurrMemeImg
 
 function onInit() {
     gElCanvas = document.querySelector('.meme-canvas')
@@ -32,6 +33,7 @@ function renderMeme() {
     elMemeImg.src = img.url
 
     elMemeImg.onload = function () {
+        gElCurrMemeImg = elMemeImg
         const lines = meme.lines
         const selectedIdx = meme.selectedLineIdx
 
@@ -132,9 +134,14 @@ function onSetLineTxt(ev) {
 }
 
 function onDownloadMeme(eLink) {
-    const dataUrl = gElCanvas.toDataURL()
-    eLink.href = dataUrl
-    eLink.download = 'my-meme'
+    const meme = getMeme()
+    gCtx.drawImage(gElCurrMemeImg, 0, 0, gElCanvas.width, gElCanvas.height)
+    meme.lines.forEach(function (line) {
+        drawText(line, line.x, line.y, false)
+    })
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
+    eLink.href = imgContent
+    renderMeme()
 }
 
 function onSetColor() {
