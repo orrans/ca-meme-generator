@@ -5,29 +5,6 @@ let gCtx
 var gStartPos
 let gElCurrMemeImg
 
-function onInit() {
-    gElCanvas = document.querySelector('.meme-canvas')
-    gCtx = gElCanvas.getContext('2d')
-    addMouseListeners()
-    addTouchListeners()
-    renderGallery()
-    renderTags()
-    initTags()
-}
-
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousedown', onDown)
-    gElCanvas.addEventListener('mousemove', onMove)
-    gElCanvas.addEventListener('mouseup', onUp)
-    gElCanvas.addEventListener('mouseout', onMouseOut)
-}
-
-function addTouchListeners() {
-    gElCanvas.addEventListener('touchstart', onDown)
-    gElCanvas.addEventListener('touchmove', onMove)
-    gElCanvas.addEventListener('touchend', onUp)
-}
-
 function renderMeme() {
     const meme = getMeme()
     const img = getImgById(meme.selectedImgId)
@@ -35,7 +12,7 @@ function renderMeme() {
     elMemeImg.src = img.url
 
     elMemeImg.onload = function () {
-        gElCurrMemeImg = elMemeImg
+        gElCurrMemeImg = elMemeImg //i have the get img by id
         const lines = meme.lines
         const selectedIdx = meme.selectedLineIdx
 
@@ -45,6 +22,7 @@ function renderMeme() {
             const isSelected = idx === selectedIdx
 
             if (line.x === undefined) {
+                //move to service
                 line.x = gElCanvas.width / 2
 
                 if (idx === 0) {
@@ -117,9 +95,12 @@ function onDeleteLine() {
 }
 
 function onSwitchLine() {
+    //try to take out to diff func
     const meme = getMeme()
     const elInput = document.querySelector('[name="meme-text"]')
     meme.lines[meme.selectedLineIdx].txt = elInput.value
+    //up to here
+
     meme.selectedLineIdx++
     if (meme.selectedLineIdx >= meme.lines.length) {
         meme.selectedLineIdx = 0
@@ -138,6 +119,8 @@ function onSetLineTxt(ev) {
 
 function onDownloadMeme(eLink) {
     const meme = getMeme()
+    meme.selectedIdx = -1
+    //add selected line -1 instead of drawing the img again
     gCtx.drawImage(gElCurrMemeImg, 0, 0, gElCanvas.width, gElCanvas.height)
     meme.lines.forEach(function (line) {
         drawText(line, line.x, line.y, false)
@@ -233,6 +216,7 @@ function getEvPos(ev) {
     return pos
 }
 
+//move to service
 function getClickedLineIdx(pos) {
     var lines = getMeme().lines
     for (var i = 0; i < lines.length; i++) {
@@ -244,6 +228,7 @@ function getClickedLineIdx(pos) {
     return -1
 }
 
+//move to service
 function isLineClicked(clickPos, line) {
     if (!line.bounds) return false
 
@@ -272,6 +257,7 @@ function onAlignText(align) {
     setLineAlign(align)
     const line = getSelectedLine()
     if (!line) return
+    //think with % on aligns
     if (align === 'left') {
         line.x = 25
     } else if (align === 'center') {
@@ -291,65 +277,4 @@ function onSetFont(elSelect) {
     const fontFamily = elSelect.value
     setLineFont(fontFamily)
     renderMeme()
-}
-
-function onBackToHomepage() {
-    const homePage = document.querySelector('.meme-gallery-page')
-    const galleryEl = document.querySelector('.gallery')
-    galleryEl.classList.add('active')
-    if (!homePage.classList.contains('hidden')) return
-    homePage.classList.remove('hidden')
-    document.querySelector('.meme-edit-page').classList.add('hidden')
-    closeMenu()
-}
-
-function onShareImg(ev) {
-    ev.preventDefault()
-    const meme = getMeme()
-    gCtx.drawImage(gElCurrMemeImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    meme.lines.forEach(function (line) {
-        drawText(line, line.x, line.y, false)
-    })
-    const canvasData = gElCanvas.toDataURL('image/jpeg')
-
-    // After a succesful upload, allow the user to share on Facebook
-    function onSuccess(uploadedImgUrl) {
-        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
-        console.log('encodedUploadedImgUrl:', encodedUploadedImgUrl)
-        window.open(
-            `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`
-        )
-    }
-    uploadImg(canvasData, onSuccess)
-}
-
-// on submit call to this function
-
-async function uploadImg(imgData, onSuccess) {
-    const CLOUD_NAME = 'webify'
-    const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`
-    const formData = new FormData()
-    formData.append('file', imgData)
-    formData.append('upload_preset', 'webify')
-    try {
-        const res = await fetch(UPLOAD_URL, {
-            method: 'POST',
-            body: formData,
-        })
-        const data = await res.json()
-        console.log('Cloudinary response:', data)
-        onSuccess(data.secure_url)
-    } catch (err) {
-        console.log(err)
-    }
-}
-
-function onToggleMenu() {
-    document.body.classList.toggle('menu-open')
-    document.querySelector('nav').classList.toggle('nav-open')
-}
-
-function closeMenu() {
-    document.body.classList.remove('menu-open')
-    document.querySelector('nav').classList.remove('nav-open')
 }
