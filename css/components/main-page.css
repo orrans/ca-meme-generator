@@ -6,15 +6,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 32px;
+    padding: 16px;
     background: #666;
     border-radius: 12px;
 }
 
 .meme-gallery img,
 .meme-gallery .upload-image {
-    width: 200px;
-    height: 200px;
+    width: calc(50% - 20px);
+    height: 150px;
     object-fit: cover;
     margin: 10px;
     cursor: pointer;
@@ -34,13 +34,11 @@
 
 .meme-edit-page {
     display: flex;
-    /* padding: 20px; */
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
 }
 
 .edit-tools {
-    /* flex-basis: 40%; */
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -48,7 +46,6 @@
     padding: 20px;
     border-radius: 8px;
     border: 1px solid var(--clr-grey-border);
-    flex-grow: 1;
 }
 
 button,
@@ -98,7 +95,10 @@ button,
 }
 
 .search {
-    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px 20px;
 }
 
 a.btn {

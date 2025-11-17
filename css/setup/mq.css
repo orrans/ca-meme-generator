@@ -1,7 +1,50 @@
-/* mobile only */
+@media (min-width: 768px) {
+    .main-header nav {
+        display: flex !important;
+        position: static;
+        flex-direction: row;
+        background: none;
+        padding: 0;
+        border: none;
+        gap: 24px;
+    }
 
-/* Small BP */
+    .btn-menu {
+        display: none;
+    }
 
-/* Medium BP */
+    .search {
+        flex-direction: row;
+        align-items: baseline;
+        padding: 0 0 20px;
+    }
 
-/* Large BP */
+    .meme-gallery {
+        padding: 32px;
+    }
+
+    .meme-gallery img,
+    .meme-gallery .upload-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .meme-edit-page {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .edit-tools {
+        flex-grow: 1;
+        max-width: 450px;
+    }
+
+    .most-searched {
+        flex-grow: 1;
+        padding-left: 20px;
+    }
+
+    .canvas-container {
+        flex-basis: 500px;
+    }
+}

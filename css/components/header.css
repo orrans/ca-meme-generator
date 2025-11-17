@@ -26,9 +26,30 @@
 }
 
 .main-header nav {
-    gap: 24px;
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--clr-bg-light);
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid var(--clr-primary);
+}
+
+.main-header nav.nav-open {
+    display: flex;
 }
 
 .main-header a.active {
     color: white;
+}
+
+.btn-menu {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
 }

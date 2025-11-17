@@ -16,16 +16,18 @@
         <main>
             <header class="main-header flex space-between align-center">
                 <h1 onclick="onBackToHomepage()">Meme Generator</h1>
-                <nav class="flex">
+
+                <nav class="">
                     <a href="#" class="gallery active" onclick="onBackToHomepage()">Gallery</a>
                     <a class="saved-memes" href="#">Saved memes</a>
                     <a class="about" href="#">About</a>
                 </nav>
+
+                <button class="btn-menu" onclick="onToggleMenu()">☰</button>
             </header>
 
             <section class="meme-gallery-page">
-                <section class="search flex space-between">
-                    <!-- still not implemented -->
+                <section class="search">
                     <div class="fake-input">
                         <input
                             type="search"
