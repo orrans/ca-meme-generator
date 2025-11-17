@@ -88,18 +88,7 @@ var gImgs = [
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    lines: [
-        {
-            txt: 'Add text here',
-            size: 20,
-            color: '#ffffff',
-            x: undefined,
-            y: undefined,
-            isDrag: false,
-            align: 'center',
-            font: 'impact',
-        },
-    ],
+    lines: [_createDefaultLine()],
 }
 
 function getMeme() {
@@ -137,16 +126,7 @@ function changeFontSize(diff) {
 }
 
 function addLine() {
-    gMeme.lines.push({
-        txt: 'Add text here',
-        size: 20,
-        color: '#ffffff',
-        x: undefined,
-        y: undefined,
-        isDrag: false,
-        align: 'center',
-        font: 'impact',
-    })
+    gMeme.lines.push(_createDefaultLine())
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
@@ -194,4 +174,22 @@ function setLineAlign(align) {
 function setLineFont(fontFamily) {
     if (!gMeme.lines.length) return
     gMeme.lines[gMeme.selectedLineIdx].font = fontFamily
+}
+
+function resetMeme() {
+    gMeme.selectedLineIdx = 0
+    gMeme.lines = [_createDefaultLine()]
+}
+
+function _createDefaultLine() {
+    return {
+        txt: 'Add text here',
+        size: 20,
+        color: '#ffffff',
+        x: undefined,
+        y: undefined,
+        isDrag: false,
+        align: 'center',
+        font: 'impact',
+    }
 }
