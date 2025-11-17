@@ -6,5 +6,9 @@
     --clr-primary: #8369ff;
     --clr-secondary: #a494f6;
     --clr-grey: #e1e1e1;
+
     --page-width: 1000px;
+
+    --bp-tablet: 768px;
+    --bp-desktop: 1000px;
 }
