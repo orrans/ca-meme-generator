@@ -300,6 +300,7 @@ function onBackToHomepage() {
     if (!homePage.classList.contains('hidden')) return
     homePage.classList.remove('hidden')
     document.querySelector('.meme-edit-page').classList.add('hidden')
+    closeMenu()
 }
 
 function onShareImg(ev) {
@@ -341,4 +342,14 @@ async function uploadImg(imgData, onSuccess) {
     } catch (err) {
         console.log(err)
     }
+}
+
+function onToggleMenu() {
+    document.body.classList.toggle('menu-open')
+    document.querySelector('nav').classList.toggle('nav-open')
+}
+
+function closeMenu() {
+    document.body.classList.remove('menu-open')
+    document.querySelector('nav').classList.remove('nav-open')
 }

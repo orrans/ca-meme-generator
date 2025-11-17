@@ -1,12 +1,21 @@
 @media (min-width: 768px) {
     .main-header nav {
-        display: flex !important;
+        display: flex;
         position: static;
         flex-direction: row;
         background: none;
         padding: 0;
         border: none;
         gap: 24px;
+        height: auto;
+        width: auto;
+        transform: none;
+        z-index: auto;
+        transition: none;
+    }
+
+    .btn-close {
+        display: none;
     }
 
     .btn-menu {
@@ -46,5 +55,10 @@
 
     .canvas-container {
         flex-basis: 500px;
+    }
+
+    .main-header nav a {
+        font-size: 1rem;
+        padding: 0;
     }
 }

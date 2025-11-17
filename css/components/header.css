@@ -26,23 +26,66 @@
 }
 
 .main-header nav {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-    background-color: var(--clr-bg-light);
+    display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--clr-bg-light);
     padding: 20px;
-    border-bottom: 1px solid var(--clr-primary);
+    padding-top: 60px;
+    border-left: 1px solid var(--clr-primary);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
 }
 
 .main-header nav.nav-open {
-    display: flex;
+    transform: translateX(0);
 }
 
 .main-header a.active {
     color: white;
+}
+
+.main-header nav a {
+    font-size: 1.5rem;
+    padding: 15px 0;
+    text-align: left;
+}
+
+.btn-close {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.btn-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.screen-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: none;
+    cursor: pointer;
+}
+
+body.menu-open .screen-overlay {
+    display: block;
 }
 
 .btn-menu {

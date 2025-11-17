@@ -18,9 +18,12 @@
                 <h1 onclick="onBackToHomepage()">Meme Generator</h1>
 
                 <nav class="">
+                    <button class="btn-close" onclick="closeMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
                     <a href="#" class="gallery active" onclick="onBackToHomepage()">Gallery</a>
-                    <a class="saved-memes" href="#">Saved memes</a>
-                    <a class="about" href="#">About</a>
+                    <a class="saved-memes" href="#" onclick="closeMenu()">Saved memes</a>
+                    <a class="about" href="#" onclick="closeMenu()">About</a>
                 </nav>
 
                 <button class="btn-menu" onclick="onToggleMenu()">☰</button>
@@ -137,6 +140,8 @@
                 </section>
             </section>
         </main>
+
+        <div class="screen-overlay" onclick="closeMenu()"></div>
 
         <script src="https://kit.fontawesome.com/4d02d0e877.js" crossorigin="anonymous"></script>
         <script src="./js/services/meme-service.js"></script>
