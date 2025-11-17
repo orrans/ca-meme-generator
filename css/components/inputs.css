@@ -1,16 +1,21 @@
-input[type="text"], input[type="search"], .fake-input {
+input[type='text'],
+input[type='search'],
+.fake-input {
     border-radius: 6px;
     border: 1px solid #999;
     padding: 4px 8px;
-    display: inline-block;
+    display: flex;
     background: none;
     color: white;
+    width: 100%;
 }
 
 input.no-style {
     border: none;
     padding: 0;
     border-radius: 0;
+    flex-grow: 1;
+    background: none;
 
     &:focus {
         outline: 0;
